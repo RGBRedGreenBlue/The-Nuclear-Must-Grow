@@ -162,25 +162,23 @@ minecraft {
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
-    repositories {
-        maven {
+    maven {
 
-            name 'Progwm16 maven'
-            url 'https://dvs1.progwml6.com/files/maven'
+        name = 'Progwm16 maven'
+        url = 'https://dvs1.progwml6.com/files/maven'
+    }
+    maven {
+        name = 'Tterrag Maven'
+        url = 'https://maven.tterrag.com/'
+    }
+    maven {
+        url = 'https://www.cursemaven.com'
+        content {
+            includeGroup "curse.maven"
         }
-        maven {
-            name 'Tterrag Maven'
-            url 'https://maven.tterrag.com/'
-        }
-        maven {
-            url 'https://www.cursemaven.com'
-            content {
-                includeGroup "curse.maven"
-            }
-        }
-        maven {
-            url "https://maven.tterrag.com/"
-        }
+    }
+    maven {
+        url = "https://maven.tterrag.com/"
     }
 
     maven {
@@ -203,6 +201,7 @@ dependencies {
     implementation fg.deobf("com.jozufozu.flywheel:flywheel-forge-${flywheel_minecraft_version}:${flywheel_version}")
     implementation fg.deobf("com.simibubi.create:create-${mc_version}:${create_version}:slim") { transitive = false }
     implementation fg.deobf("com.tterrag.registrate:Registrate:${registrate_version}")
+
 
     // compile against the JEI API but do not include it at runtime
     compileOnly(fg.deobf("mezz.jei:jei-${mc_version}-common-api:${jei_version}"))
